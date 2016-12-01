@@ -1,0 +1,12 @@
+import socket,sys
+
+#create a raw socket(help from tutorial: http://www.binarytides.com/raw-socket-programming-in-python-linux/)
+try:
+	in_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.getprotobyname("icmp"))
+	out_socket= socket.socket(socket.AF_INET, socket.SOCK_RAW, 
+
+except socket.error , msg:
+	print 'Socket could not be created. Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
+	sys.exit()
+
+socket.getprotobyname("icmp")
