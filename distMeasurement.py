@@ -11,10 +11,10 @@ init_ttl = 32  # the initial time to live so it won't get reset
 
 #create a payload that is the maxium 1480 bits 
 payload = "abcdefghijklmnopqrstubwxyz"
-print sys.getsizeof(payload)
+payload_size = sys.getsizeof(payload)
 
 #try to a maximum of 5 times to get data back, break when gets it 
-for i in range(0,5):
+for j in range(0,5):
 	for target in targets:
 		#get the address of the target website
 		target_ip = socket.gethostbyname(target)
@@ -59,7 +59,7 @@ for i in range(0,5):
 			i =0
 			for addr in response_addresses:	
 				response_addresses_string[i] = str(ord(addr[0])) +str(ord(addr[1])) +str(ord(addr[2])) +str(ord(addr[3])) 
-				i++
+				i=i+1
 			if(
 				icmp_response_type != 3 or icmp_response_code != 3 or
 				response_addresses_string[0] != localinfo.get_local_ip() or
@@ -68,10 +68,13 @@ for i in range(0,5):
 				response_addresses_string[3] != localinfo.get_local_ip()
 			):
 				print "Did not recieve the correct message back in the socket"
+				continue;
 			else:
 				hops = init_ttl - icmp_response_ttl
-			
-
+				RTT = end_time - start_time
+				bytes_left = len(data[28:])-20  # the amount sent back - header amount		
+				print target + ' ' + target_ip + ':  '+ str(hops) +' Hops, '+ str(RTT) + ' RTT, ' + str(bytes_left) + ' bytes left of orginal ' + str(payload_size) +'  bytes sent.'  
+				break;
 		except socket.error:
 			print "there was no response from %s." % (target)
 		

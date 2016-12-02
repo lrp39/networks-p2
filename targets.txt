@@ -1,1 +1,12 @@
-hello!
+www.google.com
+yahoo.com
+www.case.edu
+buffalo.edu
+www.foodnetwork.com
+www.facebook.com
+netflix.com
+hulu.com
+bbc.com
+wikipedia.org
+amazon.com
+ebay.com
