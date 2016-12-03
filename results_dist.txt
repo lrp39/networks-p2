@@ -1,0 +1,17 @@
+www.google.com 216.58.216.68:  9 Hops, 13.6740207672 RTT, 8 bytes left of orginal 1480  bytes sent.
+www.case.edu 129.22.12.21:  3 Hops, 0.37407875061 RTT, 8 bytes left of orginal 1480  bytes sent.
+www.foodnetwork.com 192.232.17.186:  7 Hops, 5.59496879578 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.facebook.com 31.13.69.228:  9 Hops, 9.51313972473 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.hulu.com 23.218.77.12:  10 Hops, 16.2618160248 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.ebay.com 23.218.74.113:  10 Hops, 16.3660049438 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.etsy.com 72.21.92.54:  9 Hops, 16.5331363678 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.twitter.com 104.244.42.129:  8 Hops, 31.7039489746 RTT, 8 bytes left of orginal 1480  bytes sent.
+www.instagram.com 31.13.69.245:  9 Hops, 9.39607620239 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.youtube.com 216.58.192.206:  9 Hops, 13.3550167084 RTT, 8 bytes left of orginal 1480  bytes sent.
+www.google.co.in 216.58.216.67:  9 Hops, 13.3378505707 RTT, 8 bytes left of orginal 1480  bytes sent.
+www.google.co.jp 216.58.216.67:  9 Hops, 13.4289264679 RTT, 8 bytes left of orginal 1480  bytes sent.
+www.google.ru 216.58.216.67:  9 Hops, 15.9478187561 RTT, 8 bytes left of orginal 1480  bytes sent.
+www.microsoft.com 23.218.52.137:  10 Hops, 16.9069766998 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.PayPal.com 23.218.72.51:  10 Hops, 16.7450904846 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.apple.com 23.199.165.124:  12 Hops, 15.6700611115 RTT, 528 bytes left of orginal 1480  bytes sent.
+www.google.ca 216.58.216.67:  9 Hops, 13.9119625092 RTT, 8 bytes left of orginal 1480  bytes sent.
