@@ -14,8 +14,8 @@ payload = "abcdefghijklmnopqrstubwxyz"
 payload_size = sys.getsizeof(payload)
 
 #try to a maximum of 5 times to get data back, break when gets it 
-for j in range(0,5):
-	for target in targets:
+for target in targets:
+        for j in range(0,1):
 		#get the address of the target website
 		target_ip = socket.gethostbyname(target)
  
@@ -33,12 +33,12 @@ for j in range(0,5):
 		start_time = time.time()
 
 		#send the packet to the target
-		sender.sendto(payload,(target_ip,port))
+		out_socket.sendto(payload,(target_ip,port))
 
 		#try to get response from the reciever
 		try: 
 			#get the string and the ip_address of the sender. Input is twice size that was sent 
-			data, address = reciever.recvfrom(3000)
+			data, address = in_socket.recvfrom(3000)
 			#record the time recieved
 			end_time=time.time()
 		
@@ -55,26 +55,36 @@ for j in range(0,5):
 			icmp_source_address = data[12:16]
 			icmp_destination_address = data[16:20]
 			
-			response_addresses_string
-			i =0
+			print icmp_response_destination_address
+			print icmp_destination_address
+			#format into IP addresses
+			response_addresses_string=list()
 			for addr in response_addresses:	
-				response_addresses_string[i] = str(ord(addr[0])) +str(ord(addr[1])) +str(ord(addr[2])) +str(ord(addr[3])) 
-				i=i+1
+				response_addresses_string.append(str(ord(addr[0]))+'.' +str(ord(addr[1]))+'.' +str(ord(addr[2]))+'.' +str(ord(addr[3]))) 
+			print socket.gethostbyname(socket.gethostname())
+			print 'this'+ response_addresses_string[0]
+			print response_addresses_string[1]
+			print target_ip			
+			#Make sure its the correct response
 			if(
-				icmp_response_type != 3 or icmp_response_code != 3 or
-				response_addresses_string[0] != localinfo.get_local_ip() or
+			#	icmp_response_type != 3 or icmp_response_code != 3 or
+			#	response_addresses_string[0] != 46.171' or
 				response_addresses_string[1] != target_ip or
-				response_addresses_string[2] != target_ip or
-				response_addresses_string[3] != localinfo.get_local_ip()
+				response_addresses_string[2] != target_ip 
+			#	response_addresses_string[3] != '129.22.146.171'
 			):
-				print "Did not recieve the correct message back in the socket"
-				continue;
+				print "Did not recieve the correct message back in the socket" 
+				continue
 			else:
 				hops = init_ttl - icmp_response_ttl
 				RTT = end_time - start_time
 				bytes_left = len(data[28:])-20  # the amount sent back - header amount		
 				print target + ' ' + target_ip + ':  '+ str(hops) +' Hops, '+ str(RTT) + ' RTT, ' + str(bytes_left) + ' bytes left of orginal ' + str(payload_size) +'  bytes sent.'  
-				break;
+				#close the sockets
+	                	out_socket.close()
+                        	in_socket.close()
+				break
+
 		except socket.error:
 			print "there was no response from %s." % (target)
 		
