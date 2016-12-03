@@ -2,6 +2,8 @@ import socket
 import sys
 import time
 
+VM_IP = '129.22.146.171'
+
 # Get list of target sites
 with open("targets.txt") as file:
         targets = file.read().splitlines()
@@ -65,10 +67,10 @@ for target in targets:
                         #Make sure its the correct response
                         if(
                                icmp_response_type != 3 or icmp_response_code != 3 or
-                               response_addresses_string[0] != '129.22.146.171'or #got number by running 'get addr show' in terminal and hard coding it in since testing is on the same vm
-                               response_addresses_string[1] != target_ip or
+                               response_addresses_string[0] != VM_IP or #got number by running 'get addr show' in terminal and hard coding it in since testing is on the same vm
+       	                       response_addresses_string[1] != target_ip or
                                response_addresses_string[2] != target_ip or
-                               response_addresses_string[3] != '129.22.146.171'
+                               response_addresses_string[3] != VM_IP
                         ):
                                 print "Did not recieve the correct message back in the socket" 
                                 continue #try to get a response again

@@ -1,0 +1,6 @@
+To run just run sudo python distMeasurement.py or sudo python geoMeasurement.py
+
+They will only work on the vm becasue the Ip is hard coded in. If it needs to be tested on another 
+machine you will have to change the ip address at the top of each file. 
+
+ 
